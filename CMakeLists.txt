@@ -64,7 +64,7 @@ if (WITH_TESTS)
     if (GCOV_TOOL AND LCOV_EXECUTABLE AND GENHTML_EXECUTABLE)
         add_custom_target(
             coverage
-            COMMAND echo ${LCOV_EXECUTABLE} --directory . --base-directory . --gcov-tool ${GCOV_TOOL} -capture -o cov.info
+            COMMAND ${LCOV_EXECUTABLE} --directory . --base-directory . --gcov-tool ${GCOV_TOOL} -capture -o cov.info
             COMMAND ${GENHTML_EXECUTABLE} cov.info -o output
             DEPENDS gen_llvm_cov_wrapper_script
             VERBATIM
