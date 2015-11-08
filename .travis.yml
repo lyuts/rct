@@ -8,7 +8,7 @@ sudo: false
 language: cpp
 
 install:
-    - pip install coveralls
+    - pip install --user coveralls
 
 matrix:
     include:
