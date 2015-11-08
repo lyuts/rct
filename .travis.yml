@@ -83,6 +83,7 @@ script:
     - which lcov
     - which llvm-cov
     - which genhtml
+    - which gcov
     - pwd
     - make gen_llvm_cov_wrapper_script
     - cat llvm-cov.sh
