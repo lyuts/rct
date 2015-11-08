@@ -84,6 +84,8 @@ before_script:
 script:
     - make
     - make test
+    - which llvm-cov-3.5
+    - which llvm-cov-3.6
     - ls /usr/local
     - ls /usr/bin
     - ls /usr/local/bin
