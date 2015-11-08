@@ -19,6 +19,7 @@ matrix:
                   packages:
                       - g++-4.8
                       - libcppunit-dev
+                      - lcov
 
         - env: COMPILER_VERSION=4.9
           os: linux
@@ -30,6 +31,7 @@ matrix:
                   packages:
                       - g++-4.9
                       - libcppunit-dev
+                      - lcov
 
         - env: COMPILER_VERSION=3.5
           os: linux
@@ -42,6 +44,7 @@ matrix:
                   packages:
                       - clang-3.5
                       - libcppunit-dev
+                      - lcov
 
         - env: COMPILER_VERSION=3.6
           os: linux
@@ -54,6 +57,7 @@ matrix:
                   packages:
                       - clang-3.6
                       - libcppunit-dev
+                      - lcov
 
 #        - env: COMPILER_VERSION=3.7
 #          os: linux
@@ -76,5 +80,8 @@ before_script:
 script:
     - make
     - make test
+    - make coverage
 
-
+after_success:
+    - pwd
+    - coveralls-lcov cov.info
