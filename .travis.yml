@@ -83,7 +83,6 @@ before_script:
 script:
     - make
     - make test
-    - coverage run ./tests/rct_tests
 
 after_success:
     - coveralls
