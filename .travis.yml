@@ -80,6 +80,9 @@ before_script:
 script:
     - make
     - make test
+    - which lcov
+    - which llvm-cov
+    - which genhtml
     - make coverage
 
 after_success:
