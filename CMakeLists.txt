@@ -44,6 +44,7 @@ if (WITH_TESTS)
     else ()
         find_program(GCOV_EXECUTABLE
             NAMES
+            gcov
             gcov47
             gcov48
         )
