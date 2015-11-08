@@ -89,4 +89,5 @@ after_success:
     - lcov --directory . --capture --output-file coverage.info
     - lcov --remove coverage.info 'tests/*' '/usr/*' --output-file coverage.info
     - lcov --list coverage.info
-    - coveralls-lcov --repo-token <your coveralls repo token> coverage.info
+    - coveralls-lcov coverage.info
+      #    - coveralls-lcov --repo-token <your coveralls repo token> coverage.info
