@@ -85,6 +85,8 @@ script:
     - make
     - make test
     - ls /usr/local
+    - ls /usr/bin
+    - ls /usr/local/bin
     - ls /usr/local/clang/bin
     - ls /usr/local/clang-3.4/bin
     - /usr/local/clang/bin/llvm-cov -version
