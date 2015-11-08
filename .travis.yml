@@ -84,6 +84,8 @@ script:
     - which llvm-cov
     - which genhtml
     - pwd
+    - gen_llvm_cov_wrapper_script
+    - cat llvm-cov.sh
     - ls
     - make coverage
 
