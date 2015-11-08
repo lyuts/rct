@@ -65,7 +65,8 @@ if (WITH_TESTS)
         add_custom_target(
             coverage
             COMMAND
-                ${LCOV_EXECUTABLE} -c -d . -b . --gcov-tool ${GCOV_TOOL} -o cov.info
+                ${LCOV_EXECUTABLE} -c -i -d . -b . --gcov-tool ${GCOV_TOOL} -o cov.info
+                && ${LCOV_EXECUTABLE} --no-checksum -c -d . -b . --gcov-tool ${GCOV_TOOL} -o cov.info
                 && ${LCOV_EXECUTABLE} -r cov.info "/usr/*" -o cov.info
                 && rm -rf ./output
                 && ${LCOV_EXECUTABLE} -r cov.info "tests/*" -o cov.info
