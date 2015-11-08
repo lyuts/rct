@@ -7,6 +7,9 @@ sudo: false
 
 language: cpp
 
+install:
+    - pip install coveralls
+
 matrix:
     include:
         - env: COMPILER_VERSION=4.8
