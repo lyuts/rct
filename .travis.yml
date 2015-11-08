@@ -82,5 +82,4 @@ script:
     - make test
 
 after_success:
-    - pwd
-    - coveralls-lcov cov.info
+    - coveralls
