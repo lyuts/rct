@@ -27,10 +27,10 @@ if (WITH_TESTS)
     if (${CMAKE_CXX_COMPILER} MATCHES "clang")
         find_program(LLVM_COV_EXECUTABLE
             NAMES
+            llvm-cov37 llvm-cov-3.7
+            llvm-cov36 llvm-cov-3.6
+            llvm-cov35 llvm-cov-3.5
             llvm-cov
-            llvm-cov35
-            llvm-cov36
-            llvm-cov37
             )
 
         add_custom_target(
@@ -44,9 +44,9 @@ if (WITH_TESTS)
     else ()
         find_program(GCOV_EXECUTABLE
             NAMES
-            gcov
-            gcov47
             gcov48
+            gcov47
+            gcov
         )
 
         add_custom_target(
