@@ -80,15 +80,6 @@ before_script:
 script:
     - make
     - make test
-    - which lcov
-    - which llvm-cov
-    - which genhtml
-    - which gcov
-    - pwd
-    - make gen_llvm_cov_wrapper_script
-    - cat llvm-cov.sh
-    - ls
-    - make coverage
 
 after_success:
     - pwd
