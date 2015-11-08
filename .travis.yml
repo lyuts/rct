@@ -66,6 +66,10 @@ matrix:
 #                  packages:
 #                      - clang-3.7
 
+
+before_install:
+    - pip install --user cpp-coveralls
+
 before_script:
     - mkdir build
     - cd build
@@ -77,4 +81,6 @@ script:
     - make
     - make test
 
+after_success:
+    - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
 
