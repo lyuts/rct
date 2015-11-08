@@ -84,6 +84,7 @@ before_script:
 script:
     - make
     - make test
+    - ls /usr/local
     - make coverage
 
 after_success:
