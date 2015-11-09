@@ -85,15 +85,10 @@ before_script:
 script:
     - make
     - make test
-    - make coverage
 
 after_success:
+    - make coverage
     - lcov-1.12/bin/lcov -r cov.info "lcov-*" -o cov.info
     - lcov-1.12/bin/lcov --list cov.info
     - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
 
-      #- env PATH=$PWD/lcov-1.12/bin:/home/travis/.gem/ruby/1.9.1/bin:$PATH coveralls-lcov cov.info
-
-    #- ls /home/travis/.gem/ruby/1.9.1/bin
-      #- coveralls cov.info
-      #    - coveralls-lcov --repo-token <your coveralls repo token> coverage.info
