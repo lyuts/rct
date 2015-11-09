@@ -36,8 +36,7 @@ if (WITH_TESTS)
         add_custom_target(
             gen_llvm_cov_wrapper_script
             COMMAND
-            echo "#!/bin/sh -xv" | tee llvm-cov.sh
-            && echo ${LLVM_COV_EXECUTABLE} gcov $@ | tee -a llvm-cov.sh
+            echo ${LLVM_COV_EXECUTABLE} gcov $@ | tee llvm-cov.sh
             COMMAND chmod a+x llvm-cov.sh
             VERBATIM
         )
@@ -61,18 +60,9 @@ if (WITH_TESTS)
         set(GCOV_TOOL ${GCOV_EXECUTABLE})
     endif ()
 
-    find_program(LCOV_EXECUTABLE
-        NAMES
-            lcov
-        PATHS
-            ${PROJECT_BINARY_DIR}/lcov-1.12/bin
-            lcov-1.12/bin
-            )
+    find_program(LCOV_EXECUTABLE NAMES lcov PATHS ${PROJECT_BINARY_DIR}/lcov-1.12/bin)
 
-    find_program(GENHTML_EXECUTABLE NAMES genhtml PATHS ${PROJECT_BINARY_DIR}/lcov-1.12/bin lcov-1.12/bin)
-
-    message("lcov: ${LCOV_EXECUTABLE}")
-    message("genhtml: ${GENHTML_EXECUTABLE}")
+    find_program(GENHTML_EXECUTABLE NAMES genhtml PATHS ${PROJECT_BINARY_DIR}/lcov-1.12/bin)
 
     if (GCOV_TOOL AND LCOV_EXECUTABLE AND GENHTML_EXECUTABLE)
         add_custom_target(
