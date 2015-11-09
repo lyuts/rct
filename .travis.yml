@@ -87,10 +87,10 @@ script:
     - make test
 
 after_success:
-    - lcov --directory . --capture --output-file cov.info
-    - lcov --remove cov.info 'tests/*' '/usr/*' --output-file cov.info
-    - lcov --list cov.info
-    - coveralls-lcov cov.info
+    - env PATH=$PWD/lcov-1.12/bin:$PATH lcov --directory . --capture --output-file cov.info
+    - env PATH=$PWD/lcov-1.12/bin:$PATH lcov --remove cov.info 'tests/*' '/usr/*' --output-file cov.info
+    - env PATH=$PWD/lcov-1.12/bin:$PATH lcov --list cov.info
+    - env PATH=/home/travis/.gem/ruby/1.9.1/bin:$PATH coveralls-lcov cov.info
     #- make coverage
     #- lcov-1.12/bin/lcov -r cov.info "lcov-*" -o cov.info
     #- lcov-1.12/bin/lcov --list cov.info
