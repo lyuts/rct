@@ -93,6 +93,7 @@ after_success:
     - tar xfvz lcov_1.12.orig.tar.gz
     - make -C lcov-1.12
     - cat llvm-cov.sh
+    - env PATH=$PWD/lcov-1.12/bin:$PATH lcov -v
     - env PATH=$PWD/lcov-1.12/bin:$PATH make coverage
     - coveralls-lcov cov.info
       #    - coveralls-lcov --repo-token <your coveralls repo token> coverage.info
