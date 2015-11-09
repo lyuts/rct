@@ -86,10 +86,12 @@ before_script:
 script:
     - make
     - make test
-    - apt-cache policy lcov
-    - make coverage
 
 after_success:
     - pwd
+    - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.12.orig.tar.gz
+    - tar xfvz lcov_1.12.orig.tar.gz
+    - make -C lcov-1.12
+    - env PATH=$PWD/lcov-1.12/bin:$PATH make coverage
     - coveralls-lcov cov.info
       #    - coveralls-lcov --repo-token <your coveralls repo token> coverage.info
