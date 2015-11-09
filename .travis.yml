@@ -89,5 +89,5 @@ script:
 
 after_success:
     - make coverage
-    - env PATH=/home/travis/.gem/ruby/1.9.1/bin:$PATH coveralls-lcov cov.info
+    - coveralls-lcov cov.info
 
