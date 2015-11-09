@@ -9,7 +9,7 @@ language: cpp
 
 install:
     #- pip install --user cpp-coveralls
-    - gem install --user-install coveralls-lcov
+    - gem install coveralls-lcov
 
 matrix:
     include:
