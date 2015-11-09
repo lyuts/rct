@@ -60,16 +60,18 @@ matrix:
                       - clang-3.6
                       - libcppunit-dev
 
-#        - env: COMPILER_VERSION=3.7
-#          os: linux
-#          compiler: clang++
-#          addons:
-#              apt:
-#                  sources:
-#                      - ubuntu-toolchain-r-test
-#                      - llvm-toolchain-precise-3.7
-#                  packages:
-#                      - clang-3.7
+        - env: COMPILER_VERSION=3.7
+          os: linux
+          compiler: clang++
+          addons:
+              apt:
+                  sources:
+                      - ubuntu-toolchain-r-test
+                      - llvm-toolchain-precise-3.7
+                  packages:
+                      - llvm-3.7
+                      - clang-3.7
+                      - libcppunit-dev
 
 before_script:
     - mkdir build
