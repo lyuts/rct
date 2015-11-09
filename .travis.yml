@@ -91,6 +91,8 @@ after_success:
     - ls lcov-1.12/bin
     - env PATH=$PWD/lcov-1.12/bin:$PATH lcov -v
     - env PATH=$PWD/lcov-1.12/bin:$PATH make coverage
+    - lcov-1.12/bin/lcov -r cov.info "lcov-*" -o cov.info
+    - lcov-1.12/bin/lcov --list cov.info
     - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
 
       #- env PATH=$PWD/lcov-1.12/bin:/home/travis/.gem/ruby/1.9.1/bin:$PATH coveralls-lcov cov.info
