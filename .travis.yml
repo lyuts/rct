@@ -92,6 +92,7 @@ after_success:
     - env PATH=$PWD/lcov-1.12/bin:$PATH lcov -v
     - env PATH=$PWD/lcov-1.12/bin:$PATH make coverage
     - which coveralls
+    - ls /home/travis/.local/bin
     - coveralls -h
     - coveralls cov.info
       #    - coveralls-lcov --repo-token <your coveralls repo token> coverage.info
