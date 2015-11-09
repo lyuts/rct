@@ -88,12 +88,11 @@ after_success:
     - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.12.orig.tar.gz
     - tar xfvz lcov_1.12.orig.tar.gz
     - make -C lcov-1.12
-    - cat llvm-cov.sh
+    - ls lcov-1.12/bin
     - env PATH=$PWD/lcov-1.12/bin:$PATH lcov -v
     - env PATH=$PWD/lcov-1.12/bin:$PATH make coverage
-    - which coveralls
-    - ls /home/travis/.local/bin
-    - ls /home/travis/.gem/ruby/1.9.1/bin
-    - coveralls -h
-    - coveralls cov.info
+    - /home/travis/.gem/ruby/1.9.1/bin/coveralls-lcov -h
+
+    #- ls /home/travis/.gem/ruby/1.9.1/bin
+      #- coveralls cov.info
       #    - coveralls-lcov --repo-token <your coveralls repo token> coverage.info
