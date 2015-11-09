@@ -68,7 +68,7 @@ if (WITH_TESTS)
             lcov-1.12/bin
             )
 
-    find_program(GENHTML_EXECUTABLE NAMES genhtml)
+        find_program(GENHTML_EXECUTABLE NAMES genhtml PATHS ${PROJECT_BINARY_DIR}/lcov-1.12/bin)
 
     if (GCOV_TOOL AND LCOV_EXECUTABLE AND GENHTML_EXECUTABLE)
         add_custom_target(
