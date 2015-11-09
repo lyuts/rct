@@ -86,6 +86,9 @@ script:
     - make test
 
 after_success:
+    - ls $(dirname $(which gcov))/g*
+    - ls /usr/local/bin/g*
+    - ls /usr/bin/g*
     - make coverage
       #- env PATH=$PWD/lcov-1.12/bin:$PATH lcov --directory . --capture --output-file cov.info
       #- env PATH=$PWD/lcov-1.12/bin:$PATH lcov --remove cov.info 'tests/*' '/usr/*' --output-file cov.info
