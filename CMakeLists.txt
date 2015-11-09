@@ -35,7 +35,9 @@ if (WITH_TESTS)
 
         add_custom_target(
             gen_llvm_cov_wrapper_script
-            COMMAND echo ${LLVM_COV_EXECUTABLE} gcov $@ | tee llvm-cov.sh
+            COMMAND
+            echo "#!/bin/sh -xv" | tee llvm-cov.sh
+            && echo ${LLVM_COV_EXECUTABLE} gcov $@ | tee -a llvm-cov.sh
             COMMAND chmod a+x llvm-cov.sh
             VERBATIM
         )
