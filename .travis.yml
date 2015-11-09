@@ -23,7 +23,6 @@ matrix:
                   packages:
                       - g++-4.8
                       - libcppunit-dev
-                      - lcov
 
         - env: COMPILER_VERSION=4.9
           os: linux
@@ -35,7 +34,6 @@ matrix:
                   packages:
                       - g++-4.9
                       - libcppunit-dev
-                      - lcov
 
         - env: COMPILER_VERSION=3.5
           os: linux
@@ -49,7 +47,6 @@ matrix:
                       - llvm-3.5
                       - clang-3.5
                       - libcppunit-dev
-                      - lcov
 
         - env: COMPILER_VERSION=3.6
           os: linux
@@ -63,7 +60,6 @@ matrix:
                       - llvm-3.6
                       - clang-3.6
                       - libcppunit-dev
-                      - lcov
 
 #        - env: COMPILER_VERSION=3.7
 #          os: linux
