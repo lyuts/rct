@@ -75,6 +75,9 @@ matrix:
 before_script:
     - mkdir build
     - cd build
+    - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.12.orig.tar.gz
+    - tar xfvz lcov_1.12.orig.tar.gz
+    - make -C lcov-1.12
     - echo "Using compilers $CXX-${COMPILER_VERSION} and $CC-${COMPILER_VERSION}"
     - cmake -DCMAKE_CXX_COMPILER=$CXX-${COMPILER_VERSION} -DCMAKE_C_COMPILER=$CC-${COMPILER_VERSION} -DWITH_TESTS=1 ..
 
@@ -85,9 +88,6 @@ script:
 
 after_success:
     - pwd
-    - wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.12.orig.tar.gz
-    - tar xfvz lcov_1.12.orig.tar.gz
-    - make -C lcov-1.12
     - ls lcov-1.12/bin
     - env PATH=$PWD/lcov-1.12/bin:$PATH lcov -v
     - env PATH=$PWD/lcov-1.12/bin:$PATH make coverage
