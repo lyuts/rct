@@ -86,6 +86,7 @@ before_script:
 script:
     - make
     - make test
+    - apt-cache policy lcov
     - make coverage
 
 after_success:
