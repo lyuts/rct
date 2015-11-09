@@ -8,8 +8,8 @@ sudo: false
 language: cpp
 
 install:
-    - pip install --user coveralls
-    - gem install --user-install coveralls-lcov
+    - pip install --user cpp-coveralls
+      #    - gem install --user-install coveralls-lcov
 
 matrix:
     include:
@@ -91,7 +91,9 @@ after_success:
     - ls lcov-1.12/bin
     - env PATH=$PWD/lcov-1.12/bin:$PATH lcov -v
     - env PATH=$PWD/lcov-1.12/bin:$PATH make coverage
-    - env PATH=$PWD/lcov-1.12/bin:/home/travis/.gem/ruby/1.9.1/bin:$PATH coveralls-lcov cov.info
+    - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
+
+      #- env PATH=$PWD/lcov-1.12/bin:/home/travis/.gem/ruby/1.9.1/bin:$PATH coveralls-lcov cov.info
 
     #- ls /home/travis/.gem/ruby/1.9.1/bin
       #- coveralls cov.info
