@@ -60,7 +60,7 @@ if (WITH_TESTS)
         set(GCOV_TOOL ${GCOV_EXECUTABLE})
     endif ()
 
-    find_program(LCOV_EXECUTABLE NAMES lcov)
+    find_program(LCOV_EXECUTABLE NAMES lcov PATHS lcov-1.12)
     find_program(GENHTML_EXECUTABLE NAMES genhtml)
 
     if (GCOV_TOOL AND LCOV_EXECUTABLE AND GENHTML_EXECUTABLE)
